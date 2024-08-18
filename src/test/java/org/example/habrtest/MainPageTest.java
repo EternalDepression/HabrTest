@@ -34,12 +34,13 @@ public class MainPageTest {
 
     @Test
     public void sciencePopTest() {
-        WebElement userIcon = driver.findElement(By.cssSelector("a[href=\"/ru/flows/popsci/\"]"));
+        WebElement userIcon = driver.findElement(By.cssSelector("a[href='/ru/flows/popsci/']"));
         userIcon.click();
 
-        WebElement authors = driver.findElement(By.xpath("//*[contains(text(),'Авторы')]"));
+        WebElement authorIcon = driver.findElement(By.xpath("//a[@class='tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active']"));
+        authorIcon.click();
 
-        assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Авторы')]")).isDisplayed(), "Авторы не найдены");
+        assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Поиск')]")).isDisplayed(), "Поиск не найден");
     }
 }
 
