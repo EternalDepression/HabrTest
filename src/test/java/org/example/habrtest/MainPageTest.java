@@ -37,7 +37,7 @@ public class MainPageTest {
         WebElement userIcon = driver.findElement(By.cssSelector("a[href='/ru/flows/popsci/']"));
         userIcon.click();
 
-        WebElement authorIcon = driver.findElement(By.xpath("//a[@class='tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active']"));
+        WebElement authorIcon = driver.findElement(By.xpath("//span[contains(@class, 'tm-tabs__tab-item')]//*[contains(text(), 'Авторы')]"));
         authorIcon.click();
 
         assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Поиск')]")).isDisplayed(), "Поиск не найден");
