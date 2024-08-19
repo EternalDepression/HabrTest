@@ -28,8 +28,7 @@ public class MainPageTest {
     }
 
     @AfterEach
-    public void tearDown() {
-        driver.quit();
+    public void tearDown() { driver.quit();
     }
 
     @Test
@@ -40,7 +39,19 @@ public class MainPageTest {
         WebElement authorIcon = driver.findElement(By.xpath("//span[contains(@class, 'tm-tabs__tab-item')]//*[contains(text(), 'Авторы')]"));
         authorIcon.click();
 
-        assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Поиск')]")).isDisplayed(), "Поиск не найден");
+        assertTrue(driver.findElement(By.xpath("//*[contains(text(), 'Поиск')]")).isDisplayed(),
+         "Поиск не найден");
+    }
+
+    @Test
+    public void becomeAuthorTest() {
+        WebElement authIcon = driver.findElement(By.xpath("//a[@class='tm-header__become-author-btn']"));
+        authIcon.click();
+
+        WebElement waitInv = driver.findElement(By.xpath("//a[@class='tm-tabs__tab-link tm-tabs__tab-link tm-tabs__tab-link_active']"));
+        waitInv.click();
+
+        assertTrue(driver.findElement(By.xpath("//h2[@class='tm-block__title tm-block__title']")).isDisplayed(),
+        "О песочнице не обнаружено");
     }
 }
-
